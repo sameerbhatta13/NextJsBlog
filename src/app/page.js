@@ -1,28 +1,19 @@
-
 import Image from "next/image";
 import Navbar from "./components/Navbar";
-
 
 export default function Home() {
   return (
     <>
-      {/* <Navbar /> */}
-      <div>
-
-        <div className="bg-[#CBCBCB] mx-20 my-3">
-          <div className="grid grid-cols-4">
-            <div className=" bg-red-300 grid col-span-2 p-2 m-3 ">
-              <h1>
-                this is first block
-              </h1>
-            </div>
-            <div className="bg-green-300 grid col-span-2 p-2 m-3">
-              <h1>this is second block</h1>
-            </div>
-          </div>
-
+      <div className=" mx-20 flex justify-center items-center h-screen">
+        <div className="w-[100%] max-w-4xl"> {/* Controls width */}
+          <Image
+            src="/moon.jpg"
+            alt="Moon"
+            width={500}
+            height={500}
+            className="rounded-2xl shadow-lg border-4 border-gray-300 transition-transform hover:scale-105"
+          />
         </div>
-
       </div>
     </>
   );
