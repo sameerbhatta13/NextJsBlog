@@ -18,7 +18,7 @@ const Navbar = () => {
                 </div>
 
                 <div className='text-center my-8'>
-                    <h1 className='text-3xl sm:text-5xl font-medium'>Latest Blogs</h1>
+                    <h1 className='text-3xl sm:text-5xl font-medium'>Latest News</h1>
                     <p className='mt-10 max-w-[740px] m-auto text-xl sm:text-base'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis itaque aliquam vitae at, id natus delectus rem maxime officiis consequuntur? Voluptate aspernatur nobis cupiditate? Fugit nulla dicta voluptatum autem nam?</p>
                     <form action="" className='flex justify-between max-w-[500px] scale-75 sm:scale-100 mx-auto mt-10 border border-black shadow-[-6px_9px_1px_#000000]'>
                         <input type="email" placeholder='enter the email' className='pl-4 outline-none' />
