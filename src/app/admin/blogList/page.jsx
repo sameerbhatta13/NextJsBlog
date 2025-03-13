@@ -1,31 +1,42 @@
 'use client'
+import BlogTableItem from '@/app/components/adminComponents/BlogTableItem'
 import React, { useState } from 'react'
-import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 
 const page = () => {
-    const [checked, setChecked] = useState(false)
-    const handelChange = () => {
-        setChecked(!checked)
-    }
+
+
     return (
         <>
-            <div className='px-4 py-3'>
-                <label htmlFor="">
-                    <input type="checkbox" onChange={handelChange} checked={checked} /> Loding....
-                </label>
-                <div>
-                    {
-                        checked ? (
-                            <Skeleton count={4} baseColor='green' width={400} height={10} borderRadius={5} duration={1.4} />
-                        ) : (
-                            <p>nothing to show, is loading.....</p>
-                        )
-                    }
+            <div className='flex-1 pt-5 px-5 sm:pt-12 sm:pl-16'>
+                <h1>All Blogs</h1>
+                <div className='relative h-[80vh] max-w-[850px] overflow-x-auto mt-4 border border-gray-400 scrollbar-hide'>
+                    <table className='w-full text-sm text-gray-500'>
+                        <thead className='text-sm text-gray-50 text-left uppercase bg-gray-50'>
+                            <tr>
+                                <th className='hidden sm:block px-6 py-3'>
+                                    Author Name
+                                </th>
+                                <th className=' px-6 py-3'>
+                                    Blog Title
+                                </th>
+                                <th className=' px-6 py-3'>
+                                    Date
+                                </th>
+                                <th className=' px-6 py-3'>
+                                    Action
+                                </th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <BlogTableItem />
+
+                        </tbody>
+                    </table>
                 </div>
             </div>
 
-            {/* <h1>here is the list </h1> */}
         </>
     )
 }

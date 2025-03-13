@@ -1,24 +1,40 @@
+'use client'
 import Image from 'next/image'
 import React from 'react'
 
-const BlogItem = () => {
+const BlogItem = ({ id, image, description, category, title }) => {
     return (
-        <>
-            <div className='max-w-[330px] ml-4 sm:max-w-0[300px] bg-white border border-black hover:shadow-[-7px_7px_0px_#000000]'>
+        <div className="max-w-[350px] sm:max-w-[300px] md:max-w-[350px] lg:max-w-[400px]
+                        bg-white border border-black hover:shadow-[-7px_7px_0px_#000000]
+                        transition-all duration-300 rounded-lg overflow-hidden">
 
-                <Image src='/moon.jpg' alt=''
-                    width={400} height={400} className='border-b border-black' />
-                <p className='ml-5 mt-5 px-1 inline-block bg-black text-white text-sm'>Lorem ipsum,</p>
-                <div className='p-5'>
-                    <h5 className='mb-2 text-lg font-medium tracking-tight text-gray-900'>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</h5>
-                    <p className='mb-3 text-sm tracking-tight text-gray-700'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio quae fugiat cum beatae excepturi pariatur cumque dolorem culpa atque minima! Eius voluptatibus optio dicta facere quibusdam odit, officia esse maxime?</p>
-                    <div className='inline-flex items-center py-2 font-semibold text-center'>
-                        Read More
-                    </div>
-                </div>
+
+            <div className="w-full h-auto">
+                <Image
+                    src={image}
+                    alt={title}
+                    width={400}
+                    height={300}
+                    className="w-96 h-96 sm:h-[250px] md:h-[300px] lg:h-[350px] object-cover"
+                />
             </div>
 
-        </>
+
+            <p className="ml-5 mt-5 px-2 py-1 inline-block bg-black text-white text-xs uppercase tracking-wide">
+                {category}
+            </p>
+
+
+            <div className="p-5">
+                <h5 className="mb-2 text-lg font-semibold text-gray-900">{title}</h5>
+                <p className="mb-3 text-sm text-gray-700 line-clamp-3">{description}</p>
+
+                <button className="mt-2 inline-flex items-center px-4 py-2 text-sm font-semibold
+                                    bg-black text-white rounded-lg hover:bg-gray-800 transition">
+                    Read More
+                </button>
+            </div>
+        </div>
     )
 }
 
