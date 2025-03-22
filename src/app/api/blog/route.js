@@ -2,8 +2,9 @@ import { time } from "console";
 import { dbConnect } from "../../../../lib/config/db"
 import { writeFile } from 'fs/promises'
 import BlogModel from "../../../../lib/model/BlogModel";
+import { NextResponse } from "next/server";
+const fs = require('fs')
 
-const { NextResponse } = require("next/server")
 
 
 const loadDB = async () => {
@@ -14,6 +15,7 @@ loadDB()
 
 //API ENDPOINT TO GET ALL BLOGS
 export async function GET(request) {
+    //if no id
     const blogs = await BlogModel.find({})
     return NextResponse.json({ blogs })
 }
@@ -40,6 +42,17 @@ export async function POST(request) {
     console.log("blog generated")
     return NextResponse.json({ success: true, msg: 'blog details added' })
 
-
-
 }
+
+export async function DELETE(request, response) {
+    const id = await request.nextUrl.searchParams.get('id')
+    if (!id) return NextResponse.json({ success: false, msg: "Blog ID is required" });
+    const blog = await BlogModel.findById(id)
+
+    await fs.unlink(`./public${blog.image}`, () => { })
+
+    await BlogModel.findByIdAndDelete(id)
+
+    return NextResponse.json({ msg: 'blog is deleted' })
+}
+

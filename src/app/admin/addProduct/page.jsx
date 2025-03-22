@@ -4,15 +4,19 @@ import Image from 'next/image';
 import React, { useCallback, useState } from 'react'
 import { TbFileUpload } from "react-icons/tb";
 import { toast } from 'react-toastify';
+import RichEditor from "./RichEditor";
+
+
 
 const Page = () => {
+
     const [image, setImage] = useState(null);
     const [preview, setPreview] = useState(null);
     const [data, setData] = useState({
         title: '',
         description: '',
         category: "StartUp",
-        author: "sameer",
+        author_name: "sameer",
     })
     // console.log("image", image)
 
@@ -33,6 +37,13 @@ const Page = () => {
 
     }
 
+    const handleEditorChange = (html) => {
+        setData((prev) => ({
+            ...prev,
+            description: html,
+        }));
+    };
+
     const onSubmitHandler = async (e) => {
         e.preventDefault()
         if (!data.title && !data.description && !data.category) {
@@ -43,7 +54,7 @@ const Page = () => {
         formData.append('title', data.title)
         formData.append('description', data.description)
         formData.append('category', data.category)
-        formData.append('author', data.author)
+        formData.append('author_name', data.author_name)
         formData.append('image', image)
 
         try {
@@ -56,7 +67,7 @@ const Page = () => {
                     title: '',
                     description: '',
                     category: "StartUp",
-                    author: "sameer",
+                    author_name: "sameer",
                 })
             }
             else {
@@ -87,12 +98,15 @@ const Page = () => {
                                     height={128}
                                     className="w-44 h-32 object-cover rounded-lg"
                                 />)) :
-                            <input type="file" id='image' alt='image' required onChange={onImageChange} className="flex flex-col items-center text-gray-500" />
+                            <input type="file" id='image' required onChange={onImageChange} className="flex flex-col items-center text-gray-500" />
                     }
                     <p className='text-xl '>Add Title</p>
                     <input name='title' onChange={onChangeHandler} value={data.title} type="text" placeholder='Enter The tile' className='w-full sm:w-[500px] py-3 border px-3 ' />
                     <p className='text-xl '>Description</p>
-                    <textarea name='description' onChange={onChangeHandler} value={data.description} type="text" placeholder='Enter The tile' className='w-full sm:w-[500px] py-3 px-3 border' rows={6} cols={7} />
+                    {/* <textarea name='description' onChange={onChangeHandler} value={data.description} type="text" placeholder='Enter The tile' className='w-full sm:w-[500px] py-3 px-3 border' rows={6} cols={7} /> */}
+
+                    <RichEditor content={data.description} onChange={handleEditorChange} />
+
                     <p className='text-xl'>Category</p>
                     <select name="category" onChange={onChangeHandler} value={data.category} className='w-40 px-4 border text-gray-500 p-2'>
                         <option value="startup">StartUp</option>
