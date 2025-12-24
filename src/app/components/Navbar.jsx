@@ -37,7 +37,11 @@ const Navbar = () => {
         <>
             <div className='py-5 px-6 mx-20 md:px-12 lg:px-28'>
                 <div className='flex justify-between items-center'>
-                    <Image src='/moon-removebg-preview.png' width={50} height={50} alt='logo' className='w-[130px] sm:w-auto bg-transparent' />
+                    <div className='flex flex-row'>
+                        <Image src='/moon-removebg-preview.png' width={50} height={50} alt='logo' className='w-[130px] sm:w-auto bg-transparent' />
+                        <h1>Nepali daily moview Review</h1>
+                    </div>
+
 
                     <button className='flex items-center gap-2 font-medium py-1 px-3 sm:py-3 sm:px-6 border border-solid border-black rounded-lg shadow-[-6px_9px_1px_#000000]'>Get Started</button>
                 </div>
