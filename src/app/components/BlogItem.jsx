@@ -9,7 +9,7 @@ const BlogItem = ({ id, image, description, category, title }) => {
     return (
         <div className="max-w-[350px] sm:max-w-[300px] md:max-w-[350px] lg:max-w-[400px]
                         bg-white border border-black hover:shadow-[-7px_7px_0px_#000000]
-                        transition-all duration-300 rounded-lg overflow-hidden">
+                        transition-all duration-300 rounded-sm overflow-hidden">
 
             <div className="w-full h-auto">
                 <Link href={`/blogs/${id}`}>
