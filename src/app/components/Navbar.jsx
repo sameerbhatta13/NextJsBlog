@@ -43,7 +43,7 @@ const Navbar = () => {
                     </div>
 
 
-                    <button className='flex items-center gap-2 font-medium py-1 px-3 sm:py-3 sm:px-6 border border-solid border-black rounded-lg shadow-[-6px_9px_1px_#000000]'>Get Started</button>
+                    <button className='flex items-center gap-3 font-medium py-1 px-3 sm:py-3 sm:px-6 border border-solid border-black rounded-lg shadow-[-6px_9px_1px_#000000]'>Get Started</button>
                 </div>
 
                 <div className='text-center my-8'>
