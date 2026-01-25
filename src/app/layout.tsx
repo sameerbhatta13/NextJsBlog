@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -25,11 +26,14 @@ const outfit = Outfit({
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${outfit.variable}`}>
-      <body>
-        {/* <Navbar /> */}
+    <html
+      lang="en"
+      className={`${geistSans.variable} ${geistMono.variable} ${outfit.variable}`}
+    >
+      <body className="font-sans antialiased">
+        <Navbar />
         {children}
-        {/* <Footer /> */}
+        <Footer />
       </body>
     </html>
   );
